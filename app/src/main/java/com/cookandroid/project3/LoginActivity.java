@@ -81,6 +81,9 @@ public class LoginActivity extends AppCompatActivity {
 
     }
          public void onBackPressed() {
+            et_pass.setText(null);
 
+            et_id.setText(null);
+            /* 뒤로가기가 불가능해지며 입력한 ID, 패스워드를 지워준다. */
     }
 }
