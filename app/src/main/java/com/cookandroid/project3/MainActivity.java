@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                             try {
                                 JSONObject jsonObject=new JSONObject(response);
                                 boolean success=jsonObject.getBoolean("success");
-                                if(success){//명함 등록 성공
+                                if(success){//명함 등록 성공 표시
                                     Toast.makeText(getApplicationContext(),"명함등록 완료",
                                             Toast.LENGTH_SHORT).show();
 
