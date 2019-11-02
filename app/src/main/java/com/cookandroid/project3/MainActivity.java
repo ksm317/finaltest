@@ -122,7 +122,8 @@ public class MainActivity extends AppCompatActivity {
                                         Toast.LENGTH_SHORT).show();
                                 Intent intent=new Intent(MainActivity.this, NameCardActivity.class);
                                 intent.putExtra("userID",userID);
-                                startActivity(intent);
+                                startActivityForResult(intent, 0);
+
                             }else{
                                 Toast.makeText(getApplicationContext(),"fail",
                                         Toast.LENGTH_SHORT).show();

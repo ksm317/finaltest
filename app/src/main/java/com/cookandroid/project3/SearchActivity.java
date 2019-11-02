@@ -144,7 +144,8 @@ public class SearchActivity extends AppCompatActivity implements  View.OnClickLi
                         if (sw) {
                             Intent intent = new Intent(SearchActivity.this, ResultActivity.class);
                             intent.putExtra("userID", usID);
-                            startActivity(intent);
+                            startActivityForResult(intent, 0);
+
 
                         } else {
                             Toast.makeText(getApplicationContext(),"접근 권한이 없습니다.",Toast.LENGTH_SHORT).show();

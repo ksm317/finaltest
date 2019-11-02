@@ -44,8 +44,8 @@ public class ResultActivity extends AppCompatActivity {
         btn_past.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ResultActivity.this,SearchActivity.class);
-                startActivity(intent);
+                setResult(0);
+                finish();
             }
         });
 
