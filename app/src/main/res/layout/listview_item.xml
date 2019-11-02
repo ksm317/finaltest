@@ -40,7 +40,7 @@
         android:background="@drawable/logoutbutton"
         android:text="선택"
         android:layout_weight="20"
-        android:id="@+id/btn_result"/>
+        android:id="@+id/btn_result1"/>
     <View
         android:layout_width="0dp"
         android:layout_height="match_parent"

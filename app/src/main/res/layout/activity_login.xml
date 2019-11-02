@@ -1,48 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-    android:orientation="horizontal">
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="75"
-        android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/input_group">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/toname" />
         <TextView
-            android:id="@+id/textName"
-            android:background="@drawable/edit_text_middle"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:text="이름"
-            android:layout_weight="60"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:textStyle="bold"
-            android:textColor="#33aabb"/>
-        <TextView
-            android:id="@+id/textCom"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="40"
-            android:background="@drawable/edit_text_middle"
-            android:text="회사 이름"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="다른 사람과 명함을 공유 하세요"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"/>
+
     </LinearLayout>
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="5dp"
-        android:background="@drawable/logoutbutton"
-        android:text="선택"
-        android:layout_weight="20"
-        android:id="@+id/btn_result1"/>
-    <View
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="5"/>
-</LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/input_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+
+        <EditText
+            android:id="@+id/et_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_top"
+            android:hint="아이디(ID)"
+            android:inputType="textPersonName"
+            android:padding="15dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/et_pass"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_bottom"
+            android:hint="비밀번호"
+            android:inputType="textPassword"
+            android:padding="15dp" />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/btn_login"
+            android:background="@drawable/button"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="로 그 인"
+            android:textAllCaps="false"
+            android:textColor="#86A8E7"
+            android:textSize="17sp"/>
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:padding="10dp"
+            android:text="계정이 없으신가요? 회원가입"
+            android:textAllCaps="true"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="#Ffffff"
+            android:background="#00ff0000"
+            android:fontFamily="sans-serif"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
