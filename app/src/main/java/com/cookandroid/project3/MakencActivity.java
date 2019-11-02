@@ -73,6 +73,9 @@ public class MakencActivity extends AppCompatActivity {
 
                                 Toast.makeText(getApplicationContext(),"명함 생성",
                                         Toast.LENGTH_SHORT).show();
+
+                                        setResult(0);
+                                        finish();
                                 //Intent intent=new Intent(MakencActivity.this, MainActivity.class);
 
                                 //startActivity(intent);
