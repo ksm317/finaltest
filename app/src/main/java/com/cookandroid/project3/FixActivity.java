@@ -64,6 +64,8 @@ public class FixActivity extends AppCompatActivity {
                             if(success){//로그인 성공
                                 Toast.makeText(getApplicationContext(),"수정 완료",
                                         Toast.LENGTH_SHORT).show();
+                                        setResult(0);
+                                finish();
                                 //Intent intent=new Intent(FixActivity.this, MainActivity.class);
                                 //startActivity(intent);
                             }else{//로그인 실패
@@ -71,7 +73,8 @@ public class FixActivity extends AppCompatActivity {
                                         Toast.LENGTH_SHORT).show();
                                 // Intent intent=new Intent(FixActivity.this, MainActivity.class);
                                 //startActivity(intent);
-                                return;
+                                setResult(0);
+                                finish();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
