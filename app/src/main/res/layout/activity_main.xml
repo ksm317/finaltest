@@ -1,18 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cookandroid.project3.MainActivity">
+    android:background="@drawable/bg">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/input_group">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif"
+            android:background="@drawable/toname"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:text="어서오세요! TO명함 앱입니다."
+
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_weight="6"
+        android:id="@+id/input_group"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:gravity="center">
 
-</android.support.constraint.ConstraintLayout>
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:id="@+id/contetns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_id"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:text="TextView"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:textSize="20sp"
+                android:text="님 안녕하세요!"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:text="로그아웃"
+                android:id="@+id/btn_logout"
+                android:background="@drawable/logoutbutton"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_marginRight="10sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:textColor="#86A8E7"
+                android:layout_gravity="right"/></LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button2"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:padding="10dp"
+            android:id="@+id/btn_search"
+            android:text="명함 검색"
+            android:textAllCaps="true"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="#86A8E7"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_make"
+            android:background="@drawable/button2"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:padding="10dp"
+            android:text="명함 생성"
+            android:textAllCaps="true"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="#86A8E7"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_my"
+            android:background="@drawable/button2"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:padding="10dp"
+            android:text="내 명함 보기"
+            android:textAllCaps="true"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="#86A8E7"
+            android:layout_marginBottom="20dp"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
