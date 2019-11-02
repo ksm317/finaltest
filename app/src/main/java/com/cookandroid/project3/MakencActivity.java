@@ -69,6 +69,7 @@ public class MakencActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject=new JSONObject(response);
                             boolean success=jsonObject.getBoolean("success");
+
                             if(success){//명함 생성
 
                                 Toast.makeText(getApplicationContext(),"명함 생성",
