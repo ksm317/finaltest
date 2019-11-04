@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -27,11 +27,51 @@
 
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_id"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="50dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="환영합니다!"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/see_id"
+            android:layout_width="57dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="textview "
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="29dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="님!"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="360sp"
-        android:layout_height="288dp"
+        android:layout_height="216dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:layout_weight="5"
         android:background="@drawable/namecard"
         android:orientation="vertical">
 
@@ -73,32 +113,36 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/tv_id"
-                        android:layout_width="wrap_content"
+                        android:layout_width="29dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
                         android:gravity="center"
-                        android:text="ID:  " />
-
-                    <TextView
-                        android:id="@+id/see_id"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="textview "
+                        android:text="이름 :  "
                         android:textStyle="bold" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/see_name"
+                        android:layout_width="40dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="textview"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="29dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:text="회사:   " />
 
                     <TextView
                         android:id="@+id/see_company"
-                        android:layout_width="wrap_content"
+                        android:layout_width="40dp"
                         android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:text="textview"
                         android:textStyle="bold" />
@@ -116,28 +160,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="15dp"
                         android:gravity="center"
                         android:text="ncCode: " />
 
                     <TextView
                         android:id="@+id/see_ncCode"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="textview"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        android:text="이름 :  " />
-
-                    <TextView
-                        android:id="@+id/see_name"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -235,8 +263,8 @@
             android:layout_gravity="center"
             android:layout_marginLeft="55dp"
             android:background="@drawable/button2"
-            android:textColor="#86A8E7"
-            android:text="명함 수정" />
+            android:text="명함 수정"
+            android:textColor="#86A8E7" />
 
         <Button
             android:id="@+id/btn_home"
@@ -244,9 +272,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="100dp"
-            android:textColor="#86A8E7"
             android:background="@drawable/button2"
-            android:text="처음으로" />
+            android:text="처음으로"
+            android:textColor="#86A8E7" />
 
 
     </LinearLayout>
