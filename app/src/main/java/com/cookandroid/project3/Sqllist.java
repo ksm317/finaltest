@@ -12,7 +12,7 @@ public class Sqllist extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //테이블 생성
-        db.execSQL("CREATE TABLE friendTBL(ncCode VARCHAR(20) PRIMARY KEY, userName VARCHAR(10), userID VARCHAR(20));");
+        db.execSQL("CREATE TABLE friendTBL(ncCode VARCHAR(20) PRIMARY KEY, userName VARCHAR(10), userID VARCHAR(20), userCompany VARCHAR(20));");
     }
 
     @Override

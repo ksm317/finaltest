@@ -11,12 +11,12 @@ public class NccodeCheckRequest extends StringRequest {
 
     final static private String URL ="http://sg0265.dothome.co.kr/NCcheck.php";
     private Map<String, String> map;
-    public NccodeCheckRequest (String userID, Response.Listener<String> listener){
+    public NccodeCheckRequest (String ncCode, Response.Listener<String> listener){
 
         super(Method.POST, URL, listener,null);
 
         map=new HashMap<>();
-        map.put("userID",userID);
+        map.put("ncCode",ncCode);
     }
 
     protected Map<String, String> getParams() throws AuthFailureError {

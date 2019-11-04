@@ -2,6 +2,7 @@ package com.cookandroid.project3;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -44,15 +45,15 @@ public class ResultActivity extends AppCompatActivity {
         btn_past.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setResult(0);
-                finish();
+                Intent intent=new Intent(ResultActivity.this,SearchActivity.class);
+                startActivity(intent);
             }
         });
 
 
         Intent intent=getIntent();
-        String userName=intent.getStringExtra("userName");
-        String userID = intent.getStringExtra("userID");
+        String ncCode=intent.getStringExtra("ncCode");
+        //String userID = intent.getStringExtra("userID");
         /*
         String userID=intent.getStringExtra("userID");
         String ncCode=intent.getStringExtra("ncCode");
@@ -61,7 +62,7 @@ public class ResultActivity extends AppCompatActivity {
         String useremail=intent.getStringExtra("useremail");
         String userCompany=intent.getStringExtra("userCompany");
         sc_name.setText(userName);*/
-        sc_id.setText(userID);
+        //sc_id.setText(userID);
         /*
         sc_ncCode.setText(ncCode);
 
@@ -91,6 +92,13 @@ public class ResultActivity extends AppCompatActivity {
                         sc_email.setText(useremail);
                         sc_phone.setText(userPhone);
                         sc_company.setText(userCompany);
+                        sc_phone.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                String tel = "tel:"+sc_phone.getText().toString();
+                                startActivity(new Intent("android.intent.action.DIAL", Uri.parse(tel)));
+                            }
+                        });
                         Toast.makeText(getApplicationContext(), "good",
                                 Toast.LENGTH_SHORT).show();
 
@@ -104,7 +112,7 @@ public class ResultActivity extends AppCompatActivity {
                 }
             }
         };
-        ResultRequest resultRequest=new ResultRequest(userID, responseListener);
+        ResultRequest resultRequest=new ResultRequest(ncCode, responseListener);
         RequestQueue queue=Volley.newRequestQueue(ResultActivity.this);
         queue.add(resultRequest);
 

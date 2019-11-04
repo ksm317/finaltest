@@ -13,12 +13,12 @@ public class ResultRequest extends StringRequest {
     final static private String URL = "http://sg0265.dothome.co.kr/Result.php";
     private Map<String, String> map;
 
-    public ResultRequest( String userID,
+    public ResultRequest( String ncCode,
                           Response.Listener<String> listener) {
         super(Request.Method.POST, URL, listener, null);
 
         map = new HashMap<>();
-        map.put("userID", userID);
+        map.put("ncCode", ncCode);
     }
 
     @Override

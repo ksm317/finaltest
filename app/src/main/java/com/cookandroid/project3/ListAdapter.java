@@ -47,10 +47,14 @@ public class ListAdapter extends BaseAdapter {
         }
         TextView ooName = (TextView)view.findViewById(R.id.textName);
         TextView ooCom = (TextView)view.findViewById(R.id.textCom);
+        TextView ooCom1 = (TextView)view.findViewById(R.id.textCom1);
+        TextView ooCode = (TextView)view.findViewById(R.id.textCode);
         Button btn_result1 = (Button)view.findViewById(R.id.btn_result1);
         btn_result1.setOnClickListener(data.get(i).onClickListener);
-        ooName.setText(data.get(i).Name);
-        ooCom.setText(data.get(i).Com);
+        ooName.setText("이름:"+data.get(i).Name);
+        ooCom.setText("ID:"+data.get(i).Com);
+        ooCom1.setText("회사:"+data.get(i).Com1);
+        ooCode.setText(data.get(i).ncCode);
         view.setTag(""+i);
         return view;
     }

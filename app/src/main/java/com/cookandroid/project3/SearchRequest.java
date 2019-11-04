@@ -12,11 +12,11 @@ public class SearchRequest extends StringRequest {
     final static private String URL ="http://sg0265.dothome.co.kr/Search.php";
     private Map<String, String> map;
 
-    public SearchRequest(String userID, Response.Listener<String> listener){
+    public SearchRequest(String userName, Response.Listener<String> listener){
         super(Method.POST, URL, listener,null);
 
         map=new HashMap<>();
-        map.put("userID",userID);
+        map.put("userName",userName);
     }
 
     @Override

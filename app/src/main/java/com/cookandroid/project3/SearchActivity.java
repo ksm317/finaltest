@@ -22,6 +22,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -32,6 +33,7 @@ public class SearchActivity extends AppCompatActivity implements  View.OnClickLi
     private ListView resultlv;
     private boolean sw;
     private String usID;
+    private String code;
     ItemData oItem;
     SQLiteDatabase sqlDB;
     Sqllist sqllist;
@@ -50,7 +52,7 @@ public class SearchActivity extends AppCompatActivity implements  View.OnClickLi
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String userID = ed_search.getText().toString();
+                final String userName = ed_search.getText().toString();
 
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -66,8 +68,9 @@ public class SearchActivity extends AppCompatActivity implements  View.OnClickLi
                             if (success) {
                                 String userID = jsonObject.getString("userID");
                                 String userName = jsonObject.getString("userName");
-                                String useremail = jsonObject.getString("useremail");
-                                String userPhone = jsonObject.getString("userPhone");
+                                String ncCode = jsonObject.getString("ncCode");
+                                //String useremail = jsonObject.getString("useremail");
+                                //String userPhone = jsonObject.getString("userPhone");
                                 String userCompany = jsonObject.getString("userCompany");
                                 //  for(int i=0;i<jsonArray.length();i++){
                                 //   JSONObject item = jsonArray.getJSONObject(i);
@@ -76,7 +79,8 @@ public class SearchActivity extends AppCompatActivity implements  View.OnClickLi
 
                                 oItem.Name = userName;
                                 oItem.Com = userID;
-
+                                oItem.ncCode = ncCode;
+                                oItem.Com1 = userCompany;
                                 // }
                                 ListAdapter oAdapter = new ListAdapter(oData);
                                 resultlv.setAdapter(oAdapter);
@@ -101,7 +105,7 @@ public class SearchActivity extends AppCompatActivity implements  View.OnClickLi
                     }
 
                 };
-                SearchRequest searchRequest = new SearchRequest(userID, responseListener);
+                SearchRequest searchRequest = new SearchRequest(userName, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(SearchActivity.this);
                 queue.add(searchRequest);
             }
@@ -114,12 +118,44 @@ public class SearchActivity extends AppCompatActivity implements  View.OnClickLi
     @Override
     public void onClick(View view) {
         View ParentView = (View) view.getParent();
+        final TextView oTextCode = (TextView)ParentView.findViewById(R.id.textCode);
         final TextView oTextId = (TextView) ParentView.findViewById(R.id.textCom);
         String position = (String) ParentView.getTag();
-        usID = oTextId.getText().toString();
+        //usID = oTextId.getText().toString();
+        code = oTextCode.getText().toString();
+
         sw = false;
         sqllist = new Sqllist(this);
-        Response.Listener<String> responseListener = new Response.Listener<String>() {
+        sqlDB = sqllist.getReadableDatabase();
+        Cursor cursor;
+        cursor = sqlDB.rawQuery("SELECT ncCode FROM friendTBL;", null);
+        while (cursor.moveToNext()) {
+            String NcCode = cursor.getString(0);
+            if (code.equals(NcCode)) {
+                sw = true;
+                break;
+            } else {
+                Log.e("tag", "shit" + NcCode);
+            }
+        }
+        if (sw) {
+            Intent intent = new Intent(SearchActivity.this, ResultActivity.class);
+            intent.putExtra("ncCode", code);
+            startActivity(intent);
+
+        } else {
+            //Toast.makeText(getApplicationContext(),"접근 권한이 없습니다.",Toast.LENGTH_SHORT).show();
+            AlertDialog.Builder Dialog = new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Light_Dialog);
+            String strMsg = "접근 권한이 없습니다.";
+            Dialog.setMessage(strMsg)
+                    .setPositiveButton("확인", null)
+                    .show();
+
+        }
+        cursor.close();
+        sqlDB.close();
+
+       /* Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -143,9 +179,8 @@ public class SearchActivity extends AppCompatActivity implements  View.OnClickLi
                         }
                         if (sw) {
                             Intent intent = new Intent(SearchActivity.this, ResultActivity.class);
-                            intent.putExtra("userID", usID);
-                            startActivityForResult(intent, 0);
-
+                            intent.putExtra("ncCode", ncCode);
+                            startActivity(intent);
 
                         } else {
                             Toast.makeText(getApplicationContext(),"접근 권한이 없습니다.",Toast.LENGTH_SHORT).show();
@@ -155,7 +190,7 @@ public class SearchActivity extends AppCompatActivity implements  View.OnClickLi
                                     .setPositiveButton("확인", null)
                                     .show();
                                     */
-                        }
+                        /*}
                         cursor.close();
                         sqlDB.close();
 
@@ -166,9 +201,9 @@ public class SearchActivity extends AppCompatActivity implements  View.OnClickLi
             }
 
         };
-        NccodeCheckRequest nccodeCheckRequest = new NccodeCheckRequest(usID, responseListener);
+        NccodeCheckRequest nccodeCheckRequest = new NccodeCheckRequest(code, responseListener);
         RequestQueue queue = Volley.newRequestQueue(SearchActivity.this);
-        queue.add(nccodeCheckRequest);
+        queue.add(nccodeCheckRequest);*/
         // boolean on = CheckFriend(userID);
         /*if(on){
             Intent intent=new Intent(SearchActivity.this, ResultActivity.class);

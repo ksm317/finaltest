@@ -55,8 +55,10 @@ public class FrientActivity extends AppCompatActivity implements  View.OnClickLi
                             if(success){
                                 String userName=jsonObject.getString("userName");
                                 String userID=jsonObject.getString("userID");
+                                //String ncCode1 = jsonObject.getString("ncCode");
+                                String userCompany = jsonObject.getString("userCompany");
                                 sqlDB = sqllist.getWritableDatabase();
-                                sqlDB.execSQL("INSERT INTO friendTBL VALUES('"+ncCode+"','"+userName+"','"+userID+"');");
+                                sqlDB.execSQL("INSERT INTO friendTBL VALUES('"+ncCode+"','"+userName+"','"+userID+"','"+userCompany+"');");
                                 Toast.makeText(getApplicationContext(),"입력됨",Toast.LENGTH_LONG).show();
                                 oAdapter.notifyDataSetChanged();
                                 onResume();
@@ -90,8 +92,10 @@ public class FrientActivity extends AppCompatActivity implements  View.OnClickLi
         oData = new ArrayList<>();
         while(cursor.moveToNext()){
             ItemData oItem = new ItemData();
+            oItem.ncCode = cursor.getString(0);
             oItem.Name=cursor.getString(1);
             oItem.Com=cursor.getString(2);
+            oItem.Com1 =cursor.getString(3);
             oItem.onClickListener = this;
             oData.add(oItem);
         }
@@ -105,7 +109,7 @@ public class FrientActivity extends AppCompatActivity implements  View.OnClickLi
     public void onClick(View view) {
         int Vtag = Integer.parseInt((String)view.getTag());
         View ParentView = (View) view.getParent();
-        final TextView oTextId = (TextView)ParentView.findViewById(R.id.textCom);
+        final TextView oTextCode = (TextView)ParentView.findViewById(R.id.textCode);
         String position = (String)ParentView.getTag();
         switch (Vtag){
             case 1:
@@ -116,7 +120,7 @@ public class FrientActivity extends AppCompatActivity implements  View.OnClickLi
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 sqlDB = sqllist.getWritableDatabase();
-                                sqlDB.execSQL("DELETE FROM friendTBL WHERE userID = '"+oTextId.getText().toString()+"';");
+                                sqlDB.execSQL("DELETE FROM friendTBL WHERE ncCode = '"+oTextCode.getText().toString()+"';");
                                 Toast.makeText(getApplicationContext(),"삭제됨",Toast.LENGTH_LONG).show();
                                 sqlDB.close();
                                 oAdapter.notifyDataSetChanged();
@@ -127,9 +131,9 @@ public class FrientActivity extends AppCompatActivity implements  View.OnClickLi
                         .show();
 
             case 2:
-                String userID = oTextId.getText().toString();
+                String ncCode = oTextCode.getText().toString();
                 Intent intent=new Intent(FrientActivity.this, ResultActivity.class);
-                intent.putExtra("userID",userID);
+                intent.putExtra("ncCode",ncCode);
                 startActivity(intent);
         }
     }

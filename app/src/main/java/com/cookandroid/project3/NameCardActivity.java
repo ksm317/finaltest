@@ -107,7 +107,7 @@ public class NameCardActivity extends AppCompatActivity {
                                         Toast.LENGTH_SHORT).show();
                                 Intent intent=new Intent(NameCardActivity.this, FixActivity.class);
                                 intent.putExtra("userID",userID);
-                                startActivityForResult(intent, 0);
+                                startActivity(intent);
                             }else{
                                 Toast.makeText(getApplicationContext(),"fail",
                                         Toast.LENGTH_SHORT).show();
@@ -127,9 +127,10 @@ public class NameCardActivity extends AppCompatActivity {
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Intent intent=new Intent(NameCardActivity.this,MainActivity.class);
                 setResult(0);
-                finish();
 
+                finish();
             }
         });
 
