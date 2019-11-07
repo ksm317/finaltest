@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_bottom"
             android:hint="생년월일"
-            android:inputType="date"
+            android:inputType="textPersonName"
             android:padding="15dp"
             />
 

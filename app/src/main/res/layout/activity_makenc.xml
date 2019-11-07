@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_middle"
             android:hint="전화번호"
-            android:inputType="textPersonName"
+            android:inputType="phone"
             android:padding="10dp" />
 
         <EditText
