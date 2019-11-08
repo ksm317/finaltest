@@ -13,7 +13,7 @@
             android:id="@+id/textName"
             android:background="@drawable/edit_text_middle"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:text="이름"
             android:layout_weight="60"
             android:gravity="center_vertical"
@@ -23,7 +23,7 @@
         <TextView
             android:id="@+id/textCom"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="40"
             android:background="@drawable/edit_text_middle"
             android:text="아이디"
@@ -32,7 +32,7 @@
         <TextView
             android:id="@+id/textCom1"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="40"
             android:background="@drawable/edit_text_middle"
             android:text="회사 이름"
@@ -48,17 +48,18 @@
             android:gravity="center_vertical"
             android:paddingLeft="10dp"/>
     </LinearLayout>
+
     <Button
-        android:layout_width="0dp"
+        android:id="@+id/btn_result1"
+        android:layout_width="18dp"
         android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginRight="5dp"
-        android:background="@drawable/logoutbutton"
-        android:text="선택"
+        android:layout_marginTop="10dp"
         android:layout_weight="20"
-        android:id="@+id/btn_result1"/>
+        android:background="@drawable/logoutbutton"
+        android:text="선택" />
     <View
         android:layout_width="0dp"
         android:layout_height="match_parent"

@@ -110,6 +110,7 @@ public class RegisterAcivitiy extends AppCompatActivity {
                 queue.add(registerRequest);
             }
         });
+        //날짜칸 클릭시 자동으로 데이트 피커를 띄어줌
         et_birth.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
@@ -126,7 +127,7 @@ public class RegisterAcivitiy extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
-
+                //날짜를 19990101 식으로 받아옴
                 et_birth.setText(String.format("%d%02d%02d", year,month + 1, dayOfMonth));
 
 
