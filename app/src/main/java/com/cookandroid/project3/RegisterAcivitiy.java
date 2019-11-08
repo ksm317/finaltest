@@ -48,12 +48,13 @@ public class RegisterAcivitiy extends AppCompatActivity {
                 String useremail=et_email.getText().toString();
                 //int userbirth=Integer.parseInt(et_birth.getText().toString());
                 String userbirth2=(et_birth.getText().toString());
+
                 if(userID.getBytes().length<=0 ||userPass.getBytes().length<=0||userName.getBytes().length<=0||useremail.getBytes().length<=0 ){
 
                     Toast.makeText(RegisterAcivitiy.this,"모든 정보를 입력해주세요!",Toast.LENGTH_SHORT).show();
                     return;
 
-                } else{
+                } else {
                     //이메일형식체크
                     if(!android.util.Patterns.EMAIL_ADDRESS.matcher(useremail).matches())
                     {

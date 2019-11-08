@@ -63,6 +63,19 @@ public class MakencActivity extends AppCompatActivity {
                 String userCompany=ed_company.getText().toString();
                 String userPhoto = BitMapToByteArray(img);
 
+                if(userID.getBytes().length<=0 ||ncCode.getBytes().length<=0 ||userName.getBytes().length<=0 || useremail.getBytes().length<=0 || userPhone.getBytes().length<=0 ||userCompany.getBytes().length<=0 ) {
+                    Toast.makeText(getApplicationContext(), "모든 정보를 입력하세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(userPhoto.getBytes().length<=0){
+                    Toast.makeText(getApplicationContext(),"사진을 입력하세요",
+                            Toast.LENGTH_SHORT).show();
+                    return;}
+
+
+
+
+
                 Response.Listener<String> responseListener=new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
