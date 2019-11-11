@@ -1,5 +1,4 @@
 package com.cookandroid.project3;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
@@ -48,6 +47,7 @@ public class SearchActivity extends AppCompatActivity implements  View.OnClickLi
         resultlv = findViewById(R.id.reultlv);
         final ArrayList<ItemData> oData = new ArrayList<>();
         oItem = new ItemData();
+
 
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
